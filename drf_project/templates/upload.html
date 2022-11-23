@@ -1,0 +1,32 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+<div class="container">
+
+    <!--Simple Form-->
+    <h2 class="my-4">Add a new image</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="upload" accept=".jpg, .png">
+        <br>
+        <button class="btn btn-dark my-4" type="submit">Submit</button>
+    </form>
+
+    <!--See Image Uploaded-->
+    <h2 class="my-4">Preview of uploaded Image:</h2>
+    <div class="row">
+        {% if file_url %}
+        <div class="col-lg-4 col-md-6 col-sm-12 pb-4">
+            <img src="{{ file_url }}" class="img-fluid">
+            <br>
+            <a class="btn btn-dark my-4" href="/">Return to Homepage</a>
+            {% else %}
+            <p>No image have been uploaded.</p>
+            {% endif %}
+        </div>
+
+    </div>
+
+
+    {% endblock %}

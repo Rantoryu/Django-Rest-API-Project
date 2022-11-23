@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+{% block content %}
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>DRF Recruitment Task Project</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+    <style>
+        .center {
+            margin: 0;
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+
+        #displayImages {
+            width: 100%;
+            padding: 50px 0;
+            text-align: center;
+            align-content: center;
+        }
+
+        #navigation {
+            font-size: 40px;
+            font-style: italic;
+            width: 100%;
+            padding: 50px 0;
+            text-align: center;
+            align-content: center;
+        }
+
+        #style1 {
+            font-size: 40px;
+            font-style: italic;
+            width: 100%;
+            text-align: center;
+        }
+
+        .button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            -webkit-transition-duration: 0.4s;
+            transition-duration: 0.4s;
+        }
+
+        .button1 {
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        .button2:hover {
+            box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+        }
+    </style>
+</head>
+
+<body>
+    {% load static %}
+    {% csrf_token %}
+
+    <div id="navigation">
+        <p><b>Welcome {{user}}</b></p>
+        <a href="/upload"><b>Upload Image (User)</b></a>
+        <br>
+        <a href="/admin"><b>Admin Panel</b></a>
+        <br>
+        <a href="/api"><b>API</b></a>
+        <br>
+        <p><b>Move to section:</b></p>
+        <a href="#orginal_size"><b>Orginal Size Images</b></a>
+        <br>
+        <a href="#basic_size"><b>Smaller Thumbnails</b></a>
+        <br>
+        <a href="#premium_size"><b>Bigger Thumbnails</b></a>
+    </div>
+    <br>
+    <div class="center">
+        <button class="button button2" onclick="showHideButton()">Show / Hide Uploaded Images</button>
+    </div>
+
+    <br><br><br>
+
+
+    <div id="displayImages" class="col-12">
+        {% for image in images %}
+        <br>
+        <a href="/media/{{image}}" name="orginal_size"><img src="/media/{{image}}"></a>
+        {% endfor %}
+        <p id="style1" name="basic_size"><b>Thumbnails (Height 200px):</b></p>
+        {% for thumbnail in thumbnails %}
+        <br>
+        <a href="/media/thumbnails/{{thumbnail}}"><img src="/media/thumbnails/{{thumbnail}}"><br></a>
+        {% endfor %}
+        <p id="style1"><b>Premium Thumbnails (Height 400px):</b></p>
+        {% for thumbnail_premium in thumbnails_premium %}
+        <br>
+        <a href="/media/thumbnails_premium/{{thumbnail_premium}}" name="premium_size"><img
+                src="/media/thumbnails_premium/{{thumbnail_premium}}"><br></a>
+        {% endfor %}
+
+    </div>
+    <script src="" async defer></script>
+    <script>
+        function showHideButton() {
+            var x = document.getElementById("displayImages");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+    </script>
+</body>
+
+</html>
+{% endblock %}
