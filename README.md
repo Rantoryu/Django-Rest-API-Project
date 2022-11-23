@@ -1,13 +1,13 @@
 # HexOcean-DRF-Task
 
-# Running the Project Locally (Windows 10)
+# Running Project Locally (Windows 10)
 
 ## Installation
 
 First, clone the repository to your local machine (SSH example):
 
 ```bash
-git clone git@github.com:Rantoryu/HexOcean-DRF-Task.git
+git clone git@github.com:Rantoryu/HexOcean-Task.git
 ```
 
 Activate virtual environment (Windows10):
