@@ -10,14 +10,14 @@ First, clone the repository to your local machine (SSH example):
 git clone git@github.com:Rantoryu/HexOcean-DRF-Task.git
 ```
 
+Activate virtual environment (Windows10):
+```bash
+.\.venv\Scripts\activate.ps1
+```
+
 Move to drf_project folder that contains manage.py file (using terminal from IDE):
 ```bash
 cd .\drf_project\
-```
-
-Activate virtual environment:
-```bash
-.\Scripts\activate
 ```
 
 Install the requirements:
