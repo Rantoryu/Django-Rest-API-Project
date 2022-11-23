@@ -10,8 +10,9 @@ First, clone the repository to your local machine (SSH example):
 git clone git@github.com:Rantoryu/HexOcean-Task.git
 ```
 
-Activate virtual environment (Windows10):
+Create and activate virtual environment (Windows10):
 ```bash
+python3 -m venv .venv
 .\.venv\Scripts\activate.ps1
 ```
 
